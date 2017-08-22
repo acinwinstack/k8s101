@@ -33,11 +33,10 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: vol
+        - name: pv-1
           mountPath: /home/redis
 
       volumes:
-      - name: vol
-        hostPath:
-          path: /webvol
-
+      - name: pv-1
+        persistentVolumeClaim: 
+          claimName: pvc-1
